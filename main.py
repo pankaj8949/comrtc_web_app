@@ -1,6 +1,8 @@
 from flask import Flask, render_template
+from contact import contact_routes
 
 app = Flask(__name__)
+contact_routes(app)  # Register contact routes
 
 @app.route("/")
 def Home():
@@ -53,10 +55,6 @@ def DetailedSchedule():
 @app.route("/awards-grants")
 def AwardsAndGrants():
     return render_template('screens/program/awardsngrants.html')
-
-@app.route("/contact")
-def Contact():
-    return render_template('contact.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
